@@ -1,0 +1,6 @@
+{
+    "require": {
+        "intervention/image": "^3.2",
+        "matthiasmullie/minify": "^1.3"
+    }
+}

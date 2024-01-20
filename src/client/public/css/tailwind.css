@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: Poppins Font;
+		src: url('/font/Poppins-Regular.woff') format('woff');
+		font-display: block;
+	}
+
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 240 10% 3.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 240 10% 3.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 240 10% 3.9%;
+		--primary: 240 5.9% 10%;
+		--primary-foreground: 0 0% 98%;
+		--secondary: 240 4.8% 95.9%;
+		--secondary-foreground: 240 5.9% 10%;
+		--muted: 240 4.8% 95.9%;
+		--muted-foreground: 240 3.8% 46.1%;
+		--accent: 240 4.8% 95.9%;
+		--accent-foreground: 240 5.9% 10%;
+		--destructive: 0 72.22% 57.59%;
+		--destructive-foreground: 0 0% 98%;
+		--border: 240 5.9% 90%;
+		--input: 240 5.9% 90%;
+		--ring: 240 5% 64.9%;
+		--radius: 0.5rem;
+		--font-sans: Poppins Font, Poppins, sans-serif;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border scroll-smooth;
+	}
+
+	body {
+		font-feature-settings: 'rlig' 1, 'calt' 1;
+	}
+
+
+	html.is-changing .transition-fade {
+		view-transition-name: main;
+	}
+	::view-transition-old(main) {
+		animation: fade 0.2s ease-in-out both;
+	}
+	::view-transition-new(main) {
+		animation: fade 0.2s ease-in-out both reverse;
+	}
+	@keyframes fade {
+		from { opacity: 1; filter: blur(0); }
+		to { opacity: 0; filter: blur(2px); }
+	}
+
+	.transition-form.is-changing {
+		transition: opacity 200ms;
+	}
+	.transition-form.is-animating {
+		opacity: 0;
+	}
+
+
+	input[type='number']::-webkit-outer-spin-button,
+	input[type='number']::-webkit-inner-spin-button {
+		@apply appearance-none;
+	}
+
+	/* Default checkbox styles */
+	input[type='checkbox'] {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		@apply w-4 h-4 border relative rounded-[2px] shadow shrink-0 border-primary active:scale-90 focus-visible:outline-2 focus-visible:ring-[5px] focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 checked:bg-primary checked:text-primary-foreground;
+	}
+
+	/* Checkmark style */
+	input[type='checkbox']::before {
+		content: '\2713';
+		display: none;
+		@apply text-transparent;
+		font-size: 13px;
+		line-height: 15px;
+		text-align: center;
+	}
+
+	/* Checked state for checkmark */
+	input[type='checkbox']:checked::before {
+		content: url('/icons/check.svg');
+		@apply absolute top-0 left-0 text-transparent;
+		display: block;
+	}
+
+	*::selection {
+		@apply bg-primary/30;
+	}
+
+	.bg-primary::selection {
+		@apply bg-muted/30;
+	}
+
+
+	::-webkit-scrollbar {
+		@apply w-2 h-2 fixed bg-muted;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-primary/80 rounded-md;
+	}
+}
