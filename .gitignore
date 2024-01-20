@@ -4,3 +4,6 @@ node_modules
 .vscode
 
 .unlighthouse
+
+package-lock.json
+composer.lock
