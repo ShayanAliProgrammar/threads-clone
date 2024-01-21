@@ -5,7 +5,7 @@
             <span class="sr-only">Threads</span>
         </a>
 
-        <a href="/" class="ml-auto mr-1">
+        <a href="https://github.com/ShayanAliProgrammar/threads-clone" target="_blank" class="ml-auto mr-1">
             <?= githubIcon('w-7 h-7') ?>
         </a>
 
